@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elite Gym — Fitness & Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:Inter;background:#0d0f15;color:white}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:#111727;border-bottom:1px solid #222}
+    nav a{text-decoration:none;color:#bbb;margin-left:20px;font-weight:600}
+    nav a:hover{color:white}
+
+    .hero{padding:60px 40px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .hero-text h1{font-size:42px;margin:0 0 16px 0}
+    .hero-text p{color:#aaa;margin:0 0 20px 0}
+    .btn{padding:12px 20px;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+    .btn-primary{background:#e11d48;color:white}
+    .btn-outline{background:transparent;border:1px solid #444;color:#bbb}
+
+    .services{padding:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#141a25;padding:20px;border-radius:12px;border:1px solid #1f2735}
+    .card h3{margin:0 0 10px 0}
+    .card p{margin:0;color:#aaa}
+
+    .plans{padding:40px;background:#111727}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .plan{background:#141a25;padding:20px;border-radius:12px;border:1px solid #1f2735;text-align:center}
+    .plan h2{margin:0 0 10px 0}
+    .price{font-size:32px;font-weight:800;margin:10px 0}
+
+    footer{text-align:center;padding:20px;color:#777;margin-top:40px;border-top:1px solid #222}
+
+    @media(max-width:900px){
+      .hero{flex-direction:column}
+      .services,.plan-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="font-size:24px;font-weight:800">Elite Gym</div>
+    <nav>
+      <a href="#services">الخدمات</a>
+      <a href="#plans">الأسعار</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>ابنِ جسمك. غيّر حياتك.</h1>
+      <p>نقدّم تدريب شخصي، خطط تغذية، وبرامج لياقة متقدمة لتحقيق هدفك بأسرع وقت.</p>
+      <button class="btn btn-primary">ابدأ الآن</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600" style="width:420px;border-radius:12px">
+  </section>
+
+  <section id="services" class="services">
+    <div class="card">
+      <h3>تدريب شخصي</h3>
+      <p>مدرب متخصص يحدد أهدافك ويصمّم برنامج تدريبي يناسبك.</p>
+    </div>
+    <div class="card">
+      <h3>خطط تغذية</h3>
+      <p>نظام غذائي محسوب السعرات للوصول لوزنك المثالي.</p>
+    </div>
+    <div class="card">
+      <h3>تمارين جماعية</h3>
+      <p>جلسات كروس فيت، زومبا، وكارديو لرفع الحماس.</p>
+    </div>
+  </section>
+
+  <section id="plans" class="plans">
+    <h2 style="text-align:center;margin-bottom:20px">الباقات والأسعار</h2>
+    <div class="plan-grid">
+      <div class="plan">
+        <h2>أساسي</h2>
+        <div class="price">400 EGP</div>
+        <p>اشتراك شهري + دخول الصالة</p>
+      </div>
+      <div class="plan">
+        <h2>بلس</h2>
+        <div class="price">650 EGP</div>
+        <p>تدريب + تغذية + متابعة أسبوعية</p>
+      </div>
+      <div class="plan">
+        <h2>VIP</h2>
+        <div class="price">1200 EGP</div>
+        <p>مدرب شخصي يومي + خطة كاملة</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Elite Gym — كل الحقوق محفوظة
+  </footer>
+</body>
+</html>
