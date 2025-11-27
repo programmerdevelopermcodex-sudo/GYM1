@@ -1,0 +1,71 @@
+<!doctype html>
+
+
+<div class="card">
+<h3>صور قبل / بعد</h3>
+<div id="uploads" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+<form id="uploadForm">
+<label>اختر صورة (قبل/بعد)</label>
+<input type="file" name="image" accept="image/*" />
+<select name="type"><option value="before">قبل</option><option value="after">بعد</option></select>
+<button type="submit" class="btn-primary" style="margin-top:8px">ارفع الصورة</button>
+</form>
+</div>
+
+
+</div>
+
+
+<aside>
+<div class="card">
+<h3>معلومات أساسية</h3>
+<label>الاسم</label>
+<input id="input-name" />
+<label>العمر</label>
+<input id="input-age" />
+<label>الهدف</label>
+<select id="input-goal"><option value="fat_loss">تنشيف</option><option value="muscle">زيادة عضل</option><option value="fitness">لياقة</option></select>
+<button id="save-btn" class="btn-primary" style="width:100%;margin-top:12px">حفظ</button>
+</div>
+
+
+<div class="card">
+<h3>أضف تقدم جديد</h3>
+<label>التاريخ</label>
+<input id="p-date" type="date" />
+<label>الوزن (kg)</label>
+<input id="p-weight" type="number" step="0.1" />
+<label>الصدر (cm)</label>
+<input id="p-chest" type="number" step="0.1" />
+<label>ملاحظات</label>
+<textarea id="p-notes"></textarea>
+<button id="add-progress" class="btn-primary" style="width:100%;margin-top:8px">أضف</button>
+</div>
+</aside>
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const TRAINEE_ID = 1; // اختبر على المتدرب رقم 1
+async function fetchProfile(){
+const res = await fetch(`/api/trainee/${TRAINEE_ID}`);
+const data = await res.json();
+const t = data.trainee;
+document.getElementById('t-name').textContent = t.name || '—';
+document.getElementById('t-membership').textContent = 'اشتراك: ' + (t.membership||'—');
+document.getElementById('t-weight').textContent = (t.weight||'—') + ' kg';
+document.getElementById('t-height').textContent = (t.height||'—') + ' cm';
+
+
+// عرض التقدّم في Chart
+const progress = data.progress || [];
+const labels = progress.map(p => p.date);
+const weights = progress.map(p => p.weight);
+const ctx = document.getElementById('weightChart').getContext('2d');
+new Chart(ctx, {type:'line', data:{labels, datasets:[{label:'الوزن (kg)',data:weights,fill:false,tension:0.3}]}, options:{responsive:true}});
+
+
+// عرض الصور
+const upRes = await fetch(`/api/trainee/${TRAI
